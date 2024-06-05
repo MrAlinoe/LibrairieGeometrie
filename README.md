@@ -1,4 +1,7 @@
 # Librairie Geometrie
+
+Consulter la documentation -> https://mralinoe.github.io/LibrairieGeometrie/
+
 Ceci est juste un espace de stockage pour ces fonctions Javascript que j'utilise dans beaucoup de mes petits projets.
 
 Vous êtes cependant libre d'utiliser/modifier ces fonctions pour n'importe quel usage... Veuillez noter qu'en tant que support de sauvegarde ces documents peuvent changer sans préavis.
