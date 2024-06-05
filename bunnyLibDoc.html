@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <title>BunnyLib Documentation</title>
+		<script src="bunnyLib.js"></script>
+		<style>
+		html {font-family: Arial;}
+		.title {font-weight: 750;font-size: 40px;}
+		.subtitle {font-weight: 600;font-size: 20px;}
+		.master {font-weight: bold;}
+		.cmd {font-style: italic;text-align:center;}
+		.desc {padding: 5px;vertical-align: top;text-align: left;}
+		.value {color: #4341ba;}
+		.result {color: #35bd66;}
+		.funcName {color: #a440b8;}
+		.boolean {color: #35bd66;}
+		.string {color: #a33351;}
+		.code_display {
+			font-family: "Courier New";
+			background-color: #212121;
+			margin-left: 10px;
+			padding: 2px;
+			color: white;
+		}
+		</style>
+    </head>
+    <body>
+		<span class="title">BunnyLib Library Documentation</span><br/>
+		<span class="subtitle">Librarie de fonctions utiles personnelle de <a href="https://github.com/MrAlinoe">AlinoeTheBunny</a></span><br/><br/>
+		<table border="0" width="1200" bgcolor="#9c9c9c">
+			<tr class="master" bgcolor="#9c9c9c"><td width="20%" colspan="3">Index des fonctions</td></tr>
+			<!-- <tr class="master" bgcolor="#9c9c9c"><td width="33%">Obtenir</td><td width="33%">Test</td><td width="33%">Note</td></tr> -->
+			<tr bgcolor="#d9d9d9" id="index">
+				<td colspan="2">
+					<table width="100%">
+						<tr class="desc">
+							<td width="50%">
+								<ul>
+									<li><a title="Obtenir la distance entre 2 points" href="#getDistanceBetwen">getDistanceBetwen();</a></li>
+									<li><a title="Obtenir l'angle entre 2 points" href="#getAngleBetween">getAngleBetween();</a></li>
+									<li><a title="Obtenir la distance en XY séparées entre 2 points" href="#getSideDistance">getSideDistance();</a></li>
+									<li><a title="Projeter un point partant d'un autre et obtenir ses coordonnées" href="#projectAPoint">projectAPoint();</a></li>
+								</ul>
+							</td>
+							<td width="50%">
+								<ul>
+									<li><a title="Tester si un point se trouve entre 2 autres points" href="#isBetween">isBetween();</a></li>
+									<li><a title="Tester si un point se trouve dans un angle formé par 3 autres points" href="#isBetween">isOnAngle();</a></li>
+								</ul>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr class="master" bgcolor="#9c9c9c"><td width="20%">Fonction</td><td width="40%">Paramètres</td><td width="40%">Description</td></tr>
+			<tr bgcolor="#d9d9d9" id="getDistanceBetwen">
+				<!-- Fonction getDistanceBetwen Handler -->
+				<td width="25%" class="cmd">
+					<span class="funcName">getDistanceBetwen</span>(<span class="value" title="Type:{Number}&#10;X position du point 1">x0</span>,<span class="value" title="Type:{Number}&#10;Y position du point 1">y0</span>,<span class="value" title="Type:{Number}&#10;X position du point 2">x1</span>,<span class="value" title="Type:{Number}&#10;Y position du point 2">y1</span>);
+				</td>
+				<td width="30%">
+					<ul>
+						<li><strong><span class="value">x0</span></strong> {Number} - Position en X du point 1</li>
+						<li><strong><span class="value">y0</span></strong> {Number} - Position en Y du point 1</li>
+						<li><strong><span class="value">x1</span></strong> {Number} - Position en X du point 2</li>
+						<li><strong><span class="value">y1</span></strong> {Number} - Position en Y du point 2</li>
+					</ul>
+					<ul>
+						<li><strong><span class="result">return</span></strong> {Number} - Distance réelle basée sur Pythagore</li>
+					</ul>
+				</td>
+				<td width="45%" class="desc">
+					Cette fonction renvoie la valeur entre deux points en px.
+				</td>
+			</tr>
+			<!-- Fonction getAngleBetween Handler -->
+			<tr bgcolor="#d9d9d9" id="getAngleBetween">
+				<td width="25%" class="cmd">
+					<span class="funcName">getAngleBetween</span>(<span class="value" title="Type:{Number}&#10;X position du point 1">x0</span>,<span class="value" title="Type:{Number}&#10;Y position du point 1">y0</span>,<span class="value" title="Type:{Number}&#10;X position du point 2">x1</span>,<span class="value" title="Type:{Number}&#10;Y position du point 2">y1</span>);
+				</td>
+				<td width="30%">
+					<ul>
+						<li><strong><span class="value">x0</span></strong> {Number} - Position en X du point 1</li>
+						<li><strong><span class="value">y0</span></strong> {Number} - Position en Y du point 1</li>
+						<li><strong><span class="value">x1</span></strong> {Number} - Position en X du point 2</li>
+						<li><strong><span class="value">y1</span></strong> {Number} - Position en Y du point 2</li>
+					</ul>
+					<ul>
+						<li><strong><span class="result">return</span></strong> {Number} - Angle entre les points 1 et 2 en degrées</li>
+					</ul>
+				</td>
+				<td width="45%" class="desc">
+					Cette fonction renvoie la valeur de l'angle entre les points 1 et 2, en partant du point 1, l'unité est le degrée (°).
+					<br/><br/><i>Cette fonction est basée de <a href="https://gist.github.com/conorbuck/2606166">Github</a><br/>
+					Des modifications apportées visent à ne pas permettre de résultats négatifs et afficher un résultat allant de 0° à 360°</i>
+				</td>
+			</tr>
+			<!-- Fonction getAngleBetween Handler -->
+			<tr bgcolor="#d9d9d9" id="isBetween">
+				<td width="25%" class="cmd">
+					<span class="funcName">isBetween</span>(<span class="value" title="Type:{Number}&#10;X position du point 1">x0</span>,<span class="value" title="Type:{Number}&#10;Y position du point 1">y0</span>,<span class="value" title="Type:{Number}&#10;X position du point 2">x1</span>,<span class="value" title="Type:{Number}&#10;Y position du point 2">y1</span>,<span class="value" title="Type:{Number}&#10;X position du point à tester">z0</span>,<span class="value" title="Type:{Number}&#10;Y position du point à tester">z1</span>,<span class="value" title="Type:{Number}&#10;Tolérance d'erreur">tol</span>);
+				</td>
+				<td width="30%">
+					<ul>
+						<li><strong><span class="value">x0</span></strong> {Number} - Position en X du point 1</li>
+						<li><strong><span class="value">y0</span></strong> {Number} - Position en Y du point 1</li>
+						<li><strong><span class="value">x1</span></strong> {Number} - Position en X du point 2</li>
+						<li><strong><span class="value">y1</span></strong> {Number} - Position en Y du point 2</li>
+						<li><strong><span class="value">z0</span></strong> {Number} - Position en X du point à tester (z)</li>
+						<li><strong><span class="value">z1</span></strong> {Number} - Position en Y du point à tester (z)</li>
+						<li><strong><span class="value">tol</span></strong> {Number} - Valeur de tolérance, 0 par défaut, voir desc</li>
+					</ul>
+					<ul>
+						<li><strong><span class="result">return</span></strong> {boolean} - true/false</li>
+					</ul>
+				</td>
+				<td width="45%" class="desc">
+					Cette fonction teste si un point (Z) se trouve entre deux points nommé 1 et 2.<br/><br/>La valeur de tolérance permet
+					d'ajouter une marge d'erreur au calcul de collision, si cette dernière est à 0, le point Z devra être strictement
+					entre les point 1 et 2, cette valeur accepte bien sûr les nombres a virgule.<br/><br/>Les unités sont en pixel (px)
+				</td>
+			</tr>
+			<!-- Fonction projectAPoint Handler -->
+			<tr bgcolor="#d9d9d9" id="projectAPoint">
+				<td width="25%" class="cmd">
+					<span class="funcName">projectAPoint</span>(<span class="value" title="Type:{Number}&#10;X position du point de base">x</span>,<span class="value" title="Type:{Number}&#10;Y position du point de base">y</span>,<span class="value" title="Type:{Number}&#10;Distance voulue entre les 2 points">dist</span>,<span class="value" title="Type:{Number}&#10;Angle voulu entre les deux points à partir du point de base">ang</span>,<span class="value" title="Type:{boolean}&#10;Optionnel, si non précisé renvoie true, si mis sur false, autorise les décimales">dec</span>);
+				</td>
+				<td width="30%">
+					<ul>
+						<li><strong><span class="value">x</span></strong> {Number} - Position X du point de base</li>
+						<li><strong><span class="value">y</span></strong> {Number} - Position Y du point de base</li>
+						<li><strong><span class="value">dist</span></strong> {Number} - Distance entre le point de base et la projection</li>
+						<li><strong><span class="value">ang</span></strong> {Number} - Angle entre le point de base et la projection</li>
+						<li><strong><span class="value">dec</span></strong> {boolean} - Optionnel, permet si sur false d'activer des résultats décimaux, true si non précisé</li>
+					</ul>
+					<ul>
+						<li><strong><span class="result">return.0</span></strong> {number} - Position X du point projeté</li>
+						<li><strong><span class="result">return.1</span></strong> {number} - Position Y du point projeté</li>
+					</ul>
+				</td>
+				<td width="45%" class="desc">
+					Cette fonction premet de calculer les coordonnées X et Y d'un point en le projetant depuis un autre point à partir d'une
+					distance et d'un angle entre les deux éléments.<br/><br/>Les unités de distance sont en px, les unité d'angle sont en
+					degrées.
+				</td>
+			</tr>
+			<!-- Fonction getSideDistance Handler -->
+			<tr bgcolor="#d9d9d9" id="getSideDistance">
+				<td width="25%" class="cmd">
+					<span class="funcName">getSideDistance</span>(<span class="value" title="Type:{Number}&#10;X position du point 1">x0</span>,<span class="value" title="Type:{Number}&#10;Y position du point 1">y0</span>,<span class="value" title="Type:{Number}&#10;X position du point 2">x1</span>,<span class="value" title="Type:{Number}&#10;Y position du point 2">y1</span>);
+				</td>
+				<td width="30%">
+					<ul>
+						<li><strong><span class="value">x0</span></strong> {Number} - Position en X du point 1</li>
+						<li><strong><span class="value">y0</span></strong> {Number} - Position en Y du point 1</li>
+						<li><strong><span class="value">x1</span></strong> {Number} - Position en X du point 2</li>
+						<li><strong><span class="value">y1</span></strong> {Number} - Position en Y du point 2</li>
+					</ul>
+					<ul>
+						<li><strong><span class="result">return.0</span></strong> {Number} - Distance en X uniquement</li>
+						<li><strong><span class="result">return.1</span></strong> {Number} - Distance en Y uniquement</li>
+					</ul>
+				</td>
+				<td width="45%" class="desc">
+					Cette fonction renvoie les distances X et Y entre deux points de manière séparée.
+				</td>
+			</tr>
+			<!-- Fonction isOnAngle Handler -->
+			<tr bgcolor="#d9d9d9" id="isOnAngle">
+				<td width="25%" class="cmd">
+					<span class="funcName">isOnAngle</span>(<span class="value" title="Type:{Number}&#10;X position du point d'origine">ox</span>,<span class="value" title="Type:{Number}&#10;Y position du point d'origine">oy</span>,<span class="value" title="Type:{Number}&#10;X position du point cible">tx</span>,<span class="value" title="Type:{Number}&#10;Y position du point cible">ty</span>,<span class="value" title="Type:{Number}&#10;X position du point d'angle 1">ax</span>,<span class="value" title="Type:{Number}&#10;Y position du point d'angle 1">ay</span>,<span class="value" title="Type:{Number}&#10;X position du point d'angle 2">bx</span>,<span class="value" title="Type:{Number}&#10;Y position du point d'angle 2">by</span>);
+				</td>
+				<td width="30%">
+					<ul>
+						<li><strong><span class="value">ox</span></strong> {Number} - Position en X du point d'origine</li>
+						<li><strong><span class="value">oy</span></strong> {Number} - Position en Y du point d'origine</li>
+						<li><strong><span class="value">tx</span></strong> {Number} - Position en X du point cible</li>
+						<li><strong><span class="value">ty</span></strong> {Number} - Position en Y du point cible</li>
+						<li><strong><span class="value">ax</span></strong> {Number} - Position en X du point d'angle 1</li>
+						<li><strong><span class="value">ay</span></strong> {Number} - Position en Y du point d'angle 1</li>
+						<li><strong><span class="value">bx</span></strong> {Number} - Position en X du point d'angle 2</li>
+						<li><strong><span class="value">by</span></strong> {Number} - Position en Y du point d'angle 2</li>
+					</ul>
+					<ul>
+						<li><strong><span class="result">return</span></strong> {boolean} - true/false</li>
+					</ul>
+				</td>
+				<td width="45%" class="desc">
+					Cette fonction permet de savoir si un point se trouve dans un angle formé par 3 autres points<br/><br/>
+					Exemple du fonctionnement:<br/>
+					<strong>A</strong> (ox,oy),<br/>
+					<strong>B</strong> (ax,ay),<br/>
+					<strong>C</strong> (bx,by),<br/>
+					<strong>T</strong> (tx,ty)<br/><br/>
+					La fonction permet de détecter si le point <strong>T</strong> est contenu dans l'angle formé par <strong>BAC</strong><br/>
+					L'application possible de cette fonction est la détection des collisions sur un Polygone convexe
+				</td>
+			</tr>
+		</table><br/>
+		<span class="title">Notes complémentaires</span><br/><hr>
+		Cette rubrique ajoute des détails suplémentaires sur le fonctionnement théorique des fonctions<br/>
+		La théorie indiquée ici peux vous aider si vous traduisez les fonctions dans un autre language ou simplement pour en comprendre le raisonnement
+		<br/>
+		<br/>
+		<!-- FONCTION isOnAngle information handler -->
+		<span class="subtitle">getDistanceBetwen() - Obtenir la distance entre deux points</span><br/><hr>
+		Le fonctionnement de cette fonction est basiquement le théorème de Pythagore<br/>
+		<div class="code_display">
+			Dans un triangle rectangle, le carré de la longueur de l’hypoténuse est égal à la somme des carrés des longueurs des deux autres côtés.
+			<a href="https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_de_Pythagore">Wikipedia</a>
+		</div><br/>
+		Basiquement, dans un jeu en 2d, il n'y a que deux coordonnées pour un point, X et Y<br/>
+		<img src="doc_ress/getDistanceBetween.png"/><br/>
+		Dans cet exemple nous avons deux points dont nous voulons connaitre la distance d'écart (A et B)<br/>
+		Sur un plan 2d, un 3ième point virtuel pourra être placé (ici C) et former un triangle rectangle ABC<br/>
+		
+    </body>
+</html>
