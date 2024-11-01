@@ -1,5 +1,4 @@
 //Common Math Operation Library by MrAlinoë Creations
-//Cyril Trinaux 2020 (based from 2018-2019 notes)
 //Version:1.1 Date:16/09/22
 
 
